@@ -5,6 +5,12 @@
 \contentsline {subsection}{\numberline {2.1}Implementation}{1}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Practice Problems}{1}{subsection.2.2}%
 \contentsline {section}{\numberline {3}Huffman Coding}{1}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Key Properties}{1}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Algorithm Steps}{1}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Implementation}{1}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Example}{1}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Practice Problems}{1}{subsection.3.5}%
 \contentsline {section}{\numberline {4}Unit Testing}{1}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Pytest}{1}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Catch2}{1}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Disjoint Set Union (DSU)}{1}{section.5}%

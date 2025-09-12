@@ -6,7 +6,7 @@
 \usepackage{hyperref}
 
 % Pageless setup
-\usepackage[paperheight=50in, paperwidth=8.5in, margin=1in]{geometry} % super tall page
+\usepackage[paperheight=100in, paperwidth=8.5in, margin=1in]{geometry} % super tall page
 \pagestyle{empty}  % remove page numbers
 
 % Hyperref setup for clickable links
@@ -167,8 +167,173 @@ bool search(TrieNode *node, string s) {
 
 \section{Huffman Coding}
 
-% Add Huffman coding notes and implementation here
+Huffman Coding is a lossless data compression algorithm that assigns variable-length codes to characters based on their frequency. More frequent characters get shorter codes, while less frequent characters get longer codes.
 
+\begin{itemize}
+    \item \textbf{Time complexity:} $O(n \log n)$ where $n$ is the number of unique characters
+    \item \textbf{Space complexity:} $O(n)$ for the tree structure
+\end{itemize}
+
+\subsection{Key Properties}
+\begin{itemize}
+    \item \textbf{Prefix-free codes:} The tree structure ensures that no character's code is a prefix of another character's code. This eliminates the need for separators between encoded characters and allows unambiguous decoding.
+    \item \textbf{Optimal compression:} For a given set of character frequencies, Huffman coding produces the minimum possible average code length.
+\end{itemize}
+
+\subsection{Algorithm Steps}
+\begin{enumerate}
+    \item Count frequency of each character
+    \item Create leaf nodes for each character and build a min-heap
+    \item While heap has more than one node:
+    \begin{itemize}
+        \item Extract two nodes with minimum frequency
+        \item Create new internal node with these as children
+        \item Set frequency as sum of children frequencies
+        \item Insert back into heap
+    \end{itemize}
+    \item Root of remaining tree is the Huffman tree
+    \item Assign codes: left edge = 0, right edge = 1
+\end{enumerate}
+
+\subsection{Implementation}
+
+\begin{lstlisting}[language=C++]
+struct HuffmanNode {
+    char data;
+    int freq;
+    HuffmanNode* left;
+    HuffmanNode* right;
+    
+    HuffmanNode(char d, int f) : data(d), freq(f), left(nullptr), right(nullptr) {}
+    HuffmanNode(int f) : data('\0'), freq(f), left(nullptr), right(nullptr) {}
+};
+
+// Comparator for priority queue (min-heap based on frequency)
+struct Compare {
+    bool operator()(HuffmanNode* a, HuffmanNode* b) {
+        if (a->freq == b->freq) {
+            return a->data > b->data; // tie-breaker for consistency
+        }
+        return a->freq > b->freq;
+    }
+};
+
+// Build Huffman tree from character frequencies
+HuffmanNode* buildHuffmanTree(unordered_map<char, int>& freq) {
+    priority_queue<HuffmanNode*, vector<HuffmanNode*>, Compare> minHeap;
+    
+    // Create leaf nodes and add to heap
+    for (auto& pair : freq) {
+        minHeap.push(new HuffmanNode(pair.first, pair.second));
+    }
+    
+    // Build tree bottom-up
+    while (minHeap.size() > 1) {
+        HuffmanNode* left = minHeap.top(); minHeap.pop();
+        HuffmanNode* right = minHeap.top(); minHeap.pop();
+        
+        // Create internal node
+        HuffmanNode* merged = new HuffmanNode(left->freq + right->freq);
+        merged->left = left;
+        merged->right = right;
+        
+        minHeap.push(merged);
+    }
+    
+    return minHeap.top(); // root of Huffman tree
+}
+
+// Generate codes by traversing the tree
+void generateCodes(HuffmanNode* root, string code, unordered_map<char, string>& codes) {
+    if (!root) return;
+    
+    // Leaf node - store the code
+    if (!root->left && !root->right) {
+        codes[root->data] = code.empty() ? "0" : code; // handle single character case
+        return;
+    }
+    
+    generateCodes(root->left, code + "0", codes);
+    generateCodes(root->right, code + "1", codes);
+}
+
+// Encode text using Huffman codes
+string encode(string text, unordered_map<char, string>& codes) {
+    string encoded = "";
+    for (char c : text) {
+        encoded += codes[c];
+    }
+    return encoded;
+}
+
+// Decode using Huffman tree
+string decode(string encoded, HuffmanNode* root) {
+    string decoded = "";
+    HuffmanNode* current = root;
+    
+    for (char bit : encoded) {
+        if (bit == '0') {
+            current = current->left;
+        } else {
+            current = current->right;
+        }
+        
+        // Reached leaf node
+        if (!current->left && !current->right) {
+            decoded += current->data;
+            current = root; // reset to root
+        }
+    }
+    
+    return decoded;
+}
+
+// Complete Huffman coding example
+void huffmanExample() {
+    string text = "abracadabra";
+    
+    // Count frequencies
+    unordered_map<char, int> freq;
+    for (char c : text) {
+        freq[c]++;
+    }
+    
+    // Build tree and generate codes
+    HuffmanNode* root = buildHuffmanTree(freq);
+    unordered_map<char, string> codes;
+    generateCodes(root, "", codes);
+    
+    // Print codes
+    cout << "Huffman Codes:" << endl;
+    for (auto& pair : codes) {
+        cout << pair.first << ": " << pair.second << endl;
+    }
+    
+    // Encode and decode
+    string encoded = encode(text, codes);
+    string decoded = decode(encoded, root);
+    
+    cout << "Original: " << text << endl;
+    cout << "Encoded: " << encoded << endl;
+    cout << "Decoded: " << decoded << endl;
+}
+\end{lstlisting}
+
+\subsection{Example}
+For text "abracadabra":
+\begin{itemize}
+    \item Frequencies: a(5), b(2), r(2), c(1), d(1)
+    \item Possible codes: a(0), b(10), r(110), c(1110), d(1111)
+    \item Original: 88 bits (8 bits per char × 11 chars)
+    \item Compressed: 27 bits (5×1 + 2×2 + 2×3 + 1×4 + 1×4)
+    \item Compression ratio: ~69\% reduction
+\end{itemize}
+
+\subsection{Practice Problems}
+\begin{itemize}
+    \item \href{https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/}{Huffman Tree Construction}
+    \item \href{https://codeforces.com/problemset/problem/1461/D}{Text Compression Problems}
+\end{itemize}
 
 \section{Unit Testing}
 
@@ -230,5 +395,7 @@ double divide(double a, double b) {
 }
 
 \end{lstlisting}
+
+\section{Disjoint Set Union (DSU)}
 
 \end{document}
