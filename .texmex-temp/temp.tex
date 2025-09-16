@@ -163,6 +163,7 @@ bool search(TrieNode *node, string s) {
 \subsection{Practice Problems}
 \begin{itemize}
     \item \href{https://codeforces.com/problemset/problem/706/D}{Codeforces 706D}
+    \item \href{https://leetcode.com/problems/word-search-ii/description/}{Word Search II (Leetcode)}
 \end{itemize}
 
 \section{Huffman Coding}
@@ -397,5 +398,36 @@ double divide(double a, double b) {
 \end{lstlisting}
 
 \section{Disjoint Set Union (DSU)}
+
+\section{Monotonic Stack}
+
+\subsection{What is it and when to use it}
+
+A monotonic stack is a standard stack (LIFO), but the elements mantain a monotonic order at every time.
+\begin{itemize}
+    \item \textbf{Increasing stack:} elements are in increasing order from bottom to top.
+    \item \textbf{Decreasing stack:} elements are in decreasing order from bottom to top.
+\end{itemize}
+
+This allows us to efficiently answer the following questions:
+\begin{itemize}
+    \item What is the \textbf{greater/smaller element}?
+    \item Who \textbf{blocks visibility}? (think about the problem about heights and how many people can every person see on leetcode)
+    \item How many elements are visibiel until I hit a blocker?
+\end{itemize}
+
+\subsection{Principle}
+
+Whenever we want to push an element $x$, while the top of the stack violates the monotone property, pop it (and posibly update something related to the answer). After this, push $x$. This has $O(n)$ time complexity, because every element is pushed and popped at most once.
+
+\subsection{Problems}
+\begin{itemize}
+    \item \href{https://leetcode.com/problems/next-greater-element-i/}{Next Greater Element I (LeetCode)}
+    \item \href{https://leetcode.com/problems/next-greater-element-ii/}{Next Greater Element II (LeetCode)}
+    \item \href{https://leetcode.com/problems/daily-temperatures/}{Daily Temperatures (LeetCode)}
+    \item \href{https://leetcode.com/problems/largest-rectangle-in-histogram/}{Largest Rectangle in Histogram (LeetCode)}
+    \item \href{https://leetcode.com/problems/maximal-rectangle/}{Maximal Rectangle (LeetCode)}
+    \item \href{https://leetcode.com/problems/number-of-visible-people-in-a-queue/description/?envType=company&envId=google&favoriteSlug=google-thirty-days} {Number of Visible People in a Queue (LeetCode)}
+\end{itemize}
 
 \end{document}

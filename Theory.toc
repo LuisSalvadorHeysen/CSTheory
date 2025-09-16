@@ -14,3 +14,7 @@
 \contentsline {subsection}{\numberline {4.1}Pytest}{1}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Catch2}{1}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Disjoint Set Union (DSU)}{1}{section.5}%
+\contentsline {section}{\numberline {6}Monotonic Stack}{1}{section.6}%
+\contentsline {subsection}{\numberline {6.1}What is it and when to use it}{1}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Principle}{1}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Problems}{1}{subsection.6.3}%
