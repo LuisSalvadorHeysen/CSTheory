@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1758169405 "/home/lsht/UChicago/Summer2026/InterviewPrep/Theory.tex" "Theory.pdf" "Theory" 1758169406
+["pdflatex"] 1758169520 "/home/lsht/UChicago/Summer2026/InterviewPrep/Theory.tex" "Theory.pdf" "Theory" 1758169521
   "/etc/texmf/web2c/texmf.cnf" 1711150986 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/lsht/UChicago/Summer2026/InterviewPrep/Theory.tex" 1758169405 16356 944203153135ee3d006014c700642811 ""
+  "/home/lsht/UChicago/Summer2026/InterviewPrep/Theory.tex" 1758169519 16476 329b5ce458306e586295169e32d9272e ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -92,10 +92,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1720753870 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1720753924 2800026 ed1019813cdb935267c2e02e62fda82d ""
-  "Theory.aux" 1758169406 3530 a1f17a92ebd9de28a7993cd653a4a04f "pdflatex"
-  "Theory.out" 1758169406 3093 ed970dd3b59b55f48ba4944a2810a053 "pdflatex"
-  "Theory.tex" 1758169405 16356 944203153135ee3d006014c700642811 ""
-  "Theory.toc" 1758169406 1860 2a1dffb20976537cce4818725e6f8f8b "pdflatex"
+  "Theory.aux" 1758169521 3530 c7f8a8c703e8e6cd10789b39e578a886 "pdflatex"
+  "Theory.out" 1758169521 3093 ed970dd3b59b55f48ba4944a2810a053 "pdflatex"
+  "Theory.tex" 1758169519 16476 329b5ce458306e586295169e32d9272e ""
+  "Theory.toc" 1758169521 1860 675e5e86204169514df9efa168ff84f1 "pdflatex"
   (generated)
   "Theory.aux"
   "Theory.log"
