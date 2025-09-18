@@ -17,7 +17,8 @@
 \contentsline {section}{\numberline {6}Monotonic Stack}{1}{section.6}%
 \contentsline {subsection}{\numberline {6.1}What is it and when to use it}{1}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Principle}{1}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Problems}{1}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Dijkstra's Algorithm}{1}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Implementation}{1}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Practice Problems}{1}{subsection.7.2}%
+\contentsline {subsection}{\numberline {6.3}Implementation}{1}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Problems}{1}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Dijkstra's Algorithm}{2}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Implementation}{2}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Practice Problems}{2}{subsection.7.2}%

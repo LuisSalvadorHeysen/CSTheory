@@ -420,6 +420,52 @@ This allows us to efficiently answer the following questions:
 
 Whenever we want to push an element $x$, while the top of the stack violates the monotone property, pop it (and posibly update something related to the answer). After this, push $x$. This has $O(n)$ time complexity, because every element is pushed and popped at most once.
 
+\subsection{Implementation}
+Solution to the \href{https://leetcode.com/problems/largest-rectangle-in-histogram/}{Largest Rectangle in Histogram (LeetCode)} problem.:
+
+\begin{lstlisting}[language=C++]
+    class Solution {
+public:
+    vector<int> get_next(const vector<int> &v) {
+        int n = v.size();
+        vector<int> st, right(n);
+
+        for (int i = 1; i < n; ++i) {
+            while (!st.empty() && v[st.back()] > v[i]) {
+                right[st.back()] = i;
+                st.pop_back();
+            }
+
+            st.push_back(i);
+        }
+
+        return right;
+    }
+
+    int largestRectangleArea(vector<int>& heights) {
+        // find next smallest element
+        heights.push_back(-1);
+        heights.insert(heights.begin(), -1);
+        int n = heights.size(), ans = 0;
+
+        vector<int> v1 = get_next(heights); // next smallest to the right
+        reverse(heights.begin(), heights.end());
+        
+        vector<int> v2 = get_next(heights); // next smallest to the left
+        reverse(heights.begin(), heights.end());
+
+        for (int i = 1; i < n - 1; ++i) {
+            int other_idx = n - i - 1;
+            int l = n - v2[other_idx];
+            int r = v1[i];
+            ans = max(ans, heights[i] * (r - l));
+        }
+
+        return ans;
+    }
+};
+\end{lstlisting}
+
 \subsection{Problems}
 \begin{itemize}
     \item \href{https://leetcode.com/problems/next-greater-element-i/}{Next Greater Element I (LeetCode)}
@@ -474,5 +520,6 @@ public:
     \item \href{https://cses.fi/problemset/task/1202}{CSES 1202 - Message Route}
     \item \href{https://cses.fi/problemset/task/1203}{CSES 1203 - Labyrinth}
     \item \href{https://codeforces.com/problemset/problem/20/C}{Codeforces 20C - Dijkstra?}
+\end{itemize}
 
 \end{document}
