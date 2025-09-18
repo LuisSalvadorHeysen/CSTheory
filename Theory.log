@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.11)  16 SEP 2025 11:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.11)  17 SEP 2025 23:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -315,7 +315,6 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 32.
 LaTeX Info: Redefining \pageref on input line 32.
 LaTeX Info: Redefining \nameref on input line 32.
- (./Theory.out) (./Theory.out)
 \@outlinefile=\write3
 \openout3 = `Theory.out'.
 
@@ -361,7 +360,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./Theory.toc)
+)
 \tf@toc=\write4
 \openout4 = `Theory.toc'.
 
@@ -371,25 +370,49 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [1
+)
+
+/home/lsht/UChicago/Summer2026/InterviewPrep/Theory.tex:478: LaTeX Error: \begin{itemize} on input line 471 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.478 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Theory.aux)
-Package rerunfilecheck Info: File `Theory.out' has not changed.
-(rerunfilecheck)             Checksum: 17D78AFD69CE15912EC64E672F69AA6D;2544.
- ) 
+
+Package rerunfilecheck Warning: File `Theory.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Theory.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  DC6A88573D8655685AAEE0777CB3BE36;2965.
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 471 (\begingroup)
+### bottom level 
 Here is how much of TeX's memory you used:
- 12390 strings out of 478287
- 183429 string characters out of 5849289
- 3222219 words of memory out of 5000000
- 30174 multiletter control sequences out of 15000+600000
+ 12427 strings out of 478287
+ 183847 string characters out of 5849289
+ 3509602 words of memory out of 5000000
+ 30182 multiletter control sequences out of 15000+600000
  478696 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,5n,63p,349b,1332s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on Theory.pdf (1 page, 130417 bytes).
+Output written on Theory.pdf (1 page, 132092 bytes).
 PDF statistics:
- 478 PDF objects out of 1000 (max. 8388607)
- 456 compressed objects within 5 object streams
- 278 named destinations out of 1000 (max. 500000)
- 161 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 444 PDF objects out of 1000 (max. 8388607)
+ 422 compressed objects within 5 object streams
+ 313 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
