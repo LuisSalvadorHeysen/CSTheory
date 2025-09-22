@@ -23,3 +23,7 @@
 \contentsline {section}{\numberline {8}Dijkstra's Algorithm}{1}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Implementation}{1}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Practice Problems}{1}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Minimum spanning Tree (MST)}{1}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Kruskal's Algorithm}{1}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Prim's Algorithm}{1}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Practice Problems}{1}{subsection.9.3}%

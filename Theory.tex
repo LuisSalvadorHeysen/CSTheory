@@ -46,6 +46,7 @@
     \item When asked about next min/max, think about monotonic stack
     \item When asked about k-th min/max, think about quickselect
     \item When asked about prefix/suffix, think about trie
+    \item For min among maxs/max among mins, think about dp where we take the max amount an optimal split.
 \end{itemize}
 
 \section{QuickSelect}
@@ -530,6 +531,112 @@ public:
     \item \href{https://cses.fi/problemset/task/1202}{CSES 1202 - Message Route}
     \item \href{https://cses.fi/problemset/task/1203}{CSES 1203 - Labyrinth}
     \item \href{https://codeforces.com/problemset/problem/20/C}{Codeforces 20C - Dijkstra?}
+\end{itemize}
+
+
+\section{Minimum spanning Tree (MST)}
+\subsection{Kruskal's Algorithm}
+
+We sort the edges in ascending order by their weights, and we iterate over them, adding them to the MST if they do not form a cycle (we can use DSU for this).
+
+\begin{lstlisting}[language=C++]
+class Solution {
+public:
+    struct DSU {
+        vector<int> fat, siz;
+
+        DSU(int n) {
+            fat.resize(n);
+            iota(fat.begin(), fat.end(), 0);
+            siz.assign(n, 1);
+        }
+
+        int get(int x) {
+            return fat[x] == x ? x : fat[fat[x]] = get(fat[x]);
+        }
+
+        void join(int x, int y) {
+            x = get(x);
+            y = get(y);
+
+            if (x == y) {
+                return;
+            }
+
+            if (siz[x] < siz[y]) {
+                swap(x, y);
+            }
+
+            siz[x] += siz[y];
+            fat[y] = x;
+        }
+    };
+
+    int minCostToSupplyWater(int n, vector<int>& wells, vector<vector<int>>& pipes) {
+        DSU dsu(n + 1);
+        int cost = 0;
+        for (int i = 0; i < n; ++i) {
+            pipes.push_back({i + 1, n + 1, wells[i]});
+        }
+
+        sort(pipes.begin(), pipes.end(), [&](vector<int> a, vector<int> b) -> bool {return a[2] < b[2];});
+
+        for (vector<int> curr : pipes) {
+            int x = curr[0], y = curr[1], w = curr[2];
+            --x; --y;
+            if (dsu.get(x) != dsu.get(y)) {
+                cost += w;
+                dsu.join(x, y);
+            }
+        }
+
+        return cost;
+    }
+};
+\end{lstlisting}
+
+\subsection{Prim's Algorithm}
+
+We use a greedy approach. We start from a source vertex, and we add the minimum weight edge that connects a vertex in the MST to a vertex outside the MST. We repeat this until all vertices are included in the MST. Similar to Dijkstra's algorithm, but instead by keeping track of distance, we keep track of the minimum edge weight to connect to the MST.
+
+\begin{lstlisting}[language=C++]
+class Prim {
+public:
+    vector<int> fat;
+    vector<ll> d;
+    vector<vector<pair<int, int>>> adj;
+
+    Prim(const vector<vector<pair<int, int>>> &adjacency_list) {
+        adj = adjacency_list;
+        d.assign(adj.size(), INF);
+        fat.assign(adj.size(), -1);
+    }
+
+    void search(int source) {
+        priority_queue<pair<ll, int>, vector<pair<ll, int>>, greater<pair<ll, int>>> q;
+        q.push({0, source});
+        d[source] = 0;
+
+        while (!q.empty()) {
+            pair<ll, int> curr = q.top();
+            q.pop();
+
+            for (pair<int, int> nbr : adj[curr.ss]) {
+                if (d[nbr.ff] > nbr.ss) {
+                    fat[nbr.ff] = curr.ss;
+                    d[nbr.ff] = (ll) nbr.ss;
+                    q.push({d[nbr.ff], nbr.ff});
+                }
+            }
+        }
+    }
+};
+\end{lstlisting}
+\subsection{Practice Problems}
+\begin{itemize}
+    \item \href{https://cses.fi/problemset/task/1675}{CSES 1675 - Road Reparation}
+    \item \href{https://cses.fi/problemset/task/1192}{CSES 1192 - Building Roads}
+    \item \href{https://codeforces.com/problemset/problem/160/D}{Codeforces 160D - Edges in MST}
 \end{itemize}
 
 \end{document}
