@@ -639,4 +639,58 @@ public:
     \item \href{https://codeforces.com/problemset/problem/160/D}{Codeforces 160D - Edges in MST}
 \end{itemize}
 
+\section{Two Pointers}
+\subsection{What is it and when to use it}
+In a sorted array or string, we can use two pointers to find pairs or subarrays that meet certain criteria.
+The two pointers technique involves using two indices (or pointers) to traverse a data structure, typically an array or a string. This technique is particularly useful for solving problems that involve searching for pairs or subarrays that meet certain criteria, such as sums, products, or specific patterns.
+\begin{itemize}
+    \item \textbf{Finding pairs with a specific sum:} In a sorted array, you can use two pointers to find pairs of elements that add up to a given target sum.
+    \item \textbf{Removing duplicates:} You can use two pointers to efficiently remove duplicates from a sorted array in-place.
+    \item \textbf{Finding subarrays with specific properties:} You can use two pointers to find the longest subarray that meets certain conditions, such as having a sum less than or equal to a target value.
+    \item \textbf{Merging two sorted arrays:} You can use two pointers to merge two sorted arrays into one sorted array.
+
+\end{itemize}
+\subsection{Implementation (3Sum Problem)}
+\begin{lstlisting}[language=C++]
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> ans;
+        sort(nums.begin(), nums.end());
+
+        for (int i = 0; i < n; ) {
+            int lo = i + 1, hi = n - 1;
+
+            while (lo < hi) {
+                int curr_sum = nums[i] + nums[lo] + nums[hi];
+                if (curr_sum == 0) {
+                    ans.push_back({nums[i], nums[lo], nums[hi]});
+                    int prevlo = nums[lo], prevhi = nums[hi];
+
+                    while (lo < n && nums[lo] == prevlo) {
+                        ++lo;
+                    }
+
+                    while (hi >= 0 && nums[hi] == prevhi) {
+                        --hi;
+                    }
+                } else if (curr_sum > 0) {
+                    --hi;
+                } else {
+                    ++lo;
+                }
+            }
+
+            int previ = nums[i];
+            while (i < n && nums[i] == previ) {
+                ++i;
+            }
+        }
+
+        return ans;
+    }
+};
+\end{lstlisting}
+
 \end{document}
