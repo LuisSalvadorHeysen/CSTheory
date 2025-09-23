@@ -6,7 +6,7 @@
 \usepackage{hyperref}
 
 % Pageless setup
-\usepackage[paperheight=200in, paperwidth=8.5in, margin=1in]{geometry} % super tall page
+% \usepackage[paperheight=200in, paperwidth=8.5in, margin=1in]{geometry} % super tall page
 \pagestyle{empty}  % remove page numbers
 
 % Hyperref setup for clickable links
@@ -639,6 +639,7 @@ public:
     \item \href{https://codeforces.com/problemset/problem/160/D}{Codeforces 160D - Edges in MST}
 \end{itemize}
 
+
 \section{Two Pointers}
 \subsection{What is it and when to use it}
 In a sorted array or string, we can use two pointers to find pairs or subarrays that meet certain criteria.
@@ -648,8 +649,8 @@ The two pointers technique involves using two indices (or pointers) to traverse 
     \item \textbf{Removing duplicates:} You can use two pointers to efficiently remove duplicates from a sorted array in-place.
     \item \textbf{Finding subarrays with specific properties:} You can use two pointers to find the longest subarray that meets certain conditions, such as having a sum less than or equal to a target value.
     \item \textbf{Merging two sorted arrays:} You can use two pointers to merge two sorted arrays into one sorted array.
-
 \end{itemize}
+
 \subsection{Implementation (3Sum Problem)}
 \begin{lstlisting}[language=C++]
 class Solution {
@@ -693,4 +694,81 @@ public:
 };
 \end{lstlisting}
 
+\section{Doubly Linked List}
+A Linked List with also a pointer to the previous element, and with a tail and a head. Good for $O(1)$ insertions and deletions.
+
+\subsection{Implementation (LRU Cache)}
+
+\begin{lstlisting}[language=C++]
+class LRUCache {
+public:
+    struct TreeNode {
+        int key, val;
+        TreeNode *prev;
+        TreeNode *next;
+    };
+
+    TreeNode *new_node(int key = 0, int val = 0) {
+        TreeNode *node = new TreeNode;
+
+        node->val = val;
+        node->key = key;
+        node->prev = nullptr;
+        node->next = nullptr;
+
+        return node;
+    }
+
+    TreeNode *head;
+    TreeNode *tail;
+    unordered_map<int, TreeNode*> mp;
+    int cap;
+
+    void del(TreeNode *node) {
+        node->prev->next = node->next;
+        node->next->prev = node->prev;
+    }
+
+    void insert(TreeNode *node) {
+        node->prev = head;
+        head->next->prev = node;
+        node->next = head->next;
+        head->next = node;
+    }
+
+    LRUCache(int capacity) {
+        head = new_node();
+        tail = new_node();
+        head->next = tail;
+        tail->prev = head;
+        cap = capacity;
+    }
+    
+    int get(int key) {
+        if (!mp.count(key)) {
+            return -1;
+        }
+
+        del(mp[key]);
+        insert(mp[key]);
+        return mp[key]->val;
+    }
+    
+    void put(int key, int value) {
+        if (mp.count(key)) {
+            del(mp[key]);
+        }
+
+        TreeNode *node = new_node(key, value);
+        insert(node);
+        mp[key] = node;
+
+        if (mp.size() > cap) {
+            TreeNode *evict = tail->prev;
+            del(evict);
+            mp.erase(evict->key);
+        }
+    }
+};
+\end{lstlisting}
 \end{document}
