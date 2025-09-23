@@ -771,4 +771,54 @@ public:
     }
 };
 \end{lstlisting}
+
+
+\section{Cycle Detection in Directed Graph (DFS)}
+We do a dfs, and keep track of the nodes in the current recursive path. The reason we need to do this, is that if we keep a simple visited array, shared nodes may give a false positive. Consider the traph `A->B, C->B'. Here, `B` is a shared node, but there is no cycle.
+
+\begin{lstlisting}[language=C++]
+class Solution {
+public:
+    vector<vector<int>> adj;
+    int n;
+
+    bool has_cycle(int node, vector<int> &vis) {
+        if (vis[node] == 2) {
+            return true;
+        }
+
+        if (vis[node] == 1) {
+            return false;
+        }
+
+        vis[node] += 2;
+        for (int nbr : adj[node]) {
+            if (has_cycle(nbr, vis)) {
+                return true;
+            }
+        }
+        --vis[node];
+        return false;
+    }
+
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        n = numCourses;
+        adj.assign(n, vector<int>());
+
+        for (vector<int> v : prerequisites) {
+            adj[v[0]].push_back(v[1]);
+        }
+
+        vector<int> vis(n, 0);
+        for (int i = 0; i < n; ++i) {
+            if (has_cycle(i, vis)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+};
+\end{lstlisting}
+
 \end{document}

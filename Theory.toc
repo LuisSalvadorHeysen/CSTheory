@@ -32,3 +32,4 @@
 \contentsline {subsection}{\numberline {10.2}Implementation (3Sum Problem)}{19}{subsection.10.2}%
 \contentsline {section}{\numberline {11}Doubly Linked List}{21}{section.11}%
 \contentsline {subsection}{\numberline {11.1}Implementation (LRU Cache)}{21}{subsection.11.1}%
+\contentsline {section}{\numberline {12}Cycle Detection in Directed Graph (DFS)}{23}{section.12}%
