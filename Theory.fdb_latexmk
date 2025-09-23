@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1758598438 "/home/lsht/UChicago/Summer2026/InterviewPrep/Theory.tex" "Theory.pdf" "Theory" 1758598439
+["pdflatex"] 1758598495 "/home/lsht/UChicago/Summer2026/InterviewPrep/Theory.tex" "Theory.pdf" "Theory" 1758598496
   "/etc/texmf/web2c/texmf.cnf" 1711150986 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/lsht/UChicago/Summer2026/InterviewPrep/Theory.tex" 1758598437 25215 13d3932dae5d6eae90204de532e7603a ""
+  "/home/lsht/UChicago/Summer2026/InterviewPrep/Theory.tex" 1758598495 25237 c4df75d519ce801cbae2d6b7ce270636 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -30,6 +30,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -90,10 +91,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1720753870 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1720753924 2800026 ed1019813cdb935267c2e02e62fda82d ""
-  "Theory.aux" 1758598439 4934 017179ddab57f448fc2c36261bdaf978 "pdflatex"
-  "Theory.out" 1758598439 4969 8771e38f99aff7571e2b17eae5fae72b "pdflatex"
-  "Theory.tex" 1758598437 25215 13d3932dae5d6eae90204de532e7603a ""
-  "Theory.toc" 1758598439 2812 2f5a13283d3c2845dd7cef872db37862 "pdflatex"
+  "Theory.aux" 1758598496 4934 017179ddab57f448fc2c36261bdaf978 "pdflatex"
+  "Theory.out" 1758598496 4969 8771e38f99aff7571e2b17eae5fae72b "pdflatex"
+  "Theory.tex" 1758598495 25237 c4df75d519ce801cbae2d6b7ce270636 ""
+  "Theory.toc" 1758598496 2812 2f5a13283d3c2845dd7cef872db37862 "pdflatex"
   (generated)
   "Theory.aux"
   "Theory.log"
