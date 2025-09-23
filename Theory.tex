@@ -776,6 +776,7 @@ public:
 \section{Cycle Detection in Directed Graph (DFS)}
 We do a dfs, and keep track of the nodes in the current recursive path. The reason we need to do this, is that if we keep a simple visited array, shared nodes may give a false positive. Consider the traph $A \rightarrow B, C \rightarrow B$. Here, $B$ is a shared node, but there is no cycle.
 
+\subsection{Implementation}
 \begin{lstlisting}[language=C++]
 class Solution {
 public:
